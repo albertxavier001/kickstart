@@ -1,0 +1,14 @@
+{
+	"folders":
+	[
+		{
+			"file_exclude_patterns":
+			[
+				"c.cpp"
+			],
+			"name": "ccc",
+			"path": "."
+		},
+		
+	]
+}
