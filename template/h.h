@@ -17,14 +17,18 @@ using namespace std;
 	macros
 */
 
-#define repUpOpen(i,beg,end) for (int i = beg; i < end; ++i)
-#define repUpClose(i,beg,end) for (int i = beg; i <= end; ++i)
-#define repDownOpen(i,beg,end) for (int i = beg; i > end; --i)
-#define repDownClose(i,beg,end) for (int i = beg; i >= end; --i)
+
+#define rep(i,beg,end) for (int i = beg; i < end; ++i)
+#define repp(i,beg,end) for (int i = beg; i >= end; --i)
+// #define repUpOpen(i,beg,end) for (int i = beg; i < end; ++i)
+// #define repUpClose(i,beg,end) for (int i = beg; i <= end; ++i)
+// #define repDownOpen(i,beg,end) for (int i = beg; i > end; --i)
+// #define repDownClose(i,beg,end) for (int i = beg; i >= end; --i)
 #define pb push_back
 #define readc(x) char x; cin>>x;
 #define readi(x) int x; cin>>x;
 #define readd(x) double x; cin>>x;
+#define MOD (1000000007)
 
 /*
 	type
@@ -73,12 +77,13 @@ void mergeSort(Iter beg, Iter end) {
 	variables
 */
 
-const bool debug=0;
+const bool debug=1;
 const bool local=1;
 
 /*
 	my functions
 */
+
 
 void solve (int iter) {
 
