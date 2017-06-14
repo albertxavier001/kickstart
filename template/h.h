@@ -1,4 +1,5 @@
 #include <iostream>
+#include <sstream>
 #include <vector>
 #include <string>
 #include <map>
@@ -12,6 +13,9 @@
 #include <utility>
 
 using namespace std;
+
+const bool debug=1;
+const bool local=1;
 
 /*
 	macros
@@ -77,8 +81,7 @@ void mergeSort(Iter beg, Iter end) {
 	variables
 */
 
-const bool debug=1;
-const bool local=1;
+
 
 /*
 	my functions
