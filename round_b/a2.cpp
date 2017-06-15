@@ -81,62 +81,46 @@ const bool local=1;
     my functions
 */
 
-int C(int m, int n) {
-    if (m==0) return 1;
-    int fz, fm;
-    fz=fm=1;
-    repDownClose(i,n,m+1) {
-        fz *= i;
-    }
-
-    repDownClose(i,n-m,1) {
-        fm *= i;
-    }
-
-    return fz/fm;
-}
-
 
 void solve (int iter) {
 
     /* code here */
+
     readi(N)
-    std::vector<int> a(N);
+    std::vector<ll> a(N);
+    std::vector<ll> diff(N, 1);
+    ll sum = 0;
 
     repUpOpen(i,0,N) {
         cin >> a[i];
     }
 
-    int sum = 0;
+    repUpOpen(i,1,N) {
+        diff[i] = (diff[i-1]<<1)%MOD;
+    }
 
-    repUpClose(k,2,N) {
-        repUpClose(j,0,N-2) {
-            repUpClose(i,1,N-1) {
-                if (i-j<k-1) continue;
-                int c = C(k-2,i-j-1);
-                sum += (a[i]-a[j])*c;
-                if (debug) {
-                    cout << "i = " << i << " j = " << j << endl;
-                    cout << "c = " << c << endl;
-                    cout << "a = " << a[i] << endl;
-                    cout << "b = " << a[j] << endl << endl;
-
-                }
-            }
+    if (debug) {
+        repUpOpen(i,0,N) {
+            cout << diff[i] << " ";
         }
+        cout << endl;
+    }
 
-        if (debug) {
-            cout << "k = " << k;
-            cout << " sum = " << sum << endl;
+    repUpOpen(i,0,N) {
+        repUpOpen(j,i+1,N) {
+            if (debug)cout << j-i+1-2 << endl;
+            // sum += (a[j] - a[i]) * diff[j-i+1-2];
+            sum = (sum + ((a[j] - a[i]) * diff[j-i+1-2]) % MOD) % MOD;
         }
     }
 
-    cout << "Case #" << iter << ": " << sum;
+    cout << "Case #" << iter << ": " << sum % MOD;
     cout << endl;
 }
 
 int main () {
     if (local) {
+        // freopen("input.txt", "r", stdin);
         freopen("A-large-practice.in", "r", stdin);
         freopen("output.txt", "w", stdout);
     }
