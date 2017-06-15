@@ -24,6 +24,7 @@ const bool local=1;
 
 #define rep(i,beg,end) for (int i = beg; i < end; ++i)
 #define repp(i,beg,end) for (int i = beg; i >= end; --i)
+#define repa(x,v) for (auto x: v)
 // #define repUpOpen(i,beg,end) for (int i = beg; i < end; ++i)
 // #define repUpClose(i,beg,end) for (int i = beg; i <= end; ++i)
 // #define repDownOpen(i,beg,end) for (int i = beg; i > end; --i)
@@ -32,7 +33,7 @@ const bool local=1;
 #define readc(x) char x; cin>>x;
 #define readi(x) int x; cin>>x;
 #define readd(x) double x; cin>>x;
-#define MOD (1000000007)
+#define mod (1000000007)
 
 /*
 	type
@@ -47,6 +48,32 @@ typedef pair<ll, ll> pll;
 /*
 	common functions
 */
+
+
+template <class T>
+inline void hash_combine(std::size_t & seed, const T & v)
+{
+  std::hash<T> hasher;
+  seed ^= hasher(v) + 0x9e3779b9 + (seed << 6) + (seed >> 2);
+}
+
+struct pair_hash {
+	template <class T1, class T2>
+	std::size_t operator () (const std::pair<T1,T2> &p) const {
+		// std::hash<T1> h1;
+		// std::hash<T2> h2;
+
+		// // Mainly for demonstration purposes, i.e. works but is overly simple
+		// // In the real world, use sth. like boost.hash_combine
+		// return h1(p.first) ^ h2(p.second);  
+
+		size_t seed = 0;
+		::hash_combine(seed, p.first);
+		::hash_combine(seed, p.second);
+		return seed;
+	}
+};
+
 
 template <class T>
 void printMatrix(vector<vector<T> > &m) {
