@@ -1,0 +1,392 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"ch",
+				"check"
+			],
+			[
+				"sta",
+				"static\tstatic"
+			],
+			[
+				"push",
+				"push_back\tvoid push_back(value_type &&__x)"
+			],
+			[
+				"p",
+				"pii"
+			],
+			[
+				"uno",
+				"unordered_map"
+			],
+			[
+				"def",
+				"define"
+			],
+			[
+				"JO",
+				"JOKER"
+			],
+			[
+				"le",
+				"left\tstd::string left"
+			],
+			[
+				"left",
+				"leftWin"
+			],
+			[
+				"vec",
+				"vector"
+			],
+			[
+				"add",
+				"add_executable"
+			],
+			[
+				"num",
+				"numeric_limits\tnumeric_limits<class _Tp>"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "round_b/a.cpp",
+			"settings":
+			{
+				"buffer_size": 2717,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "README.md",
+			"settings":
+			{
+				"buffer_size": 82,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					""
+				],
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					"Run"
+				]
+			],
+			[
+				"Packages/C++/C++ Single File.sublime-build",
+				"Run"
+			]
+		],
+		[
+			[
+				[
+					"Packages/User/cpp.sublime-build",
+					""
+				],
+				[
+					"Packages/User/cpp.sublime-build",
+					"Run"
+				]
+			],
+			[
+				"Packages/User/cpp.sublime-build",
+				"Run"
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "ins",
+		"selected_items":
+		[
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Snippet: ",
+				"Snippet: #!/usr/bin/env"
+			],
+			[
+				"inspa",
+				"Package Control: Install Package"
+			],
+			[
+				"insp",
+				"Package Control: Install Package"
+			],
+			[
+				"pacrepa",
+				"Package Control: Remove Package"
+			],
+			[
+				"pain",
+				"Package Control: Install Package"
+			],
+			[
+				"pacinsp",
+				"Package Control: Install Package"
+			],
+			[
+				"pac",
+				"Install Package Control"
+			]
+		],
+		"width": 530.0
+	},
+	"console":
+	{
+		"height": 146.0,
+		"history":
+		[
+			"2",
+			"1"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/albertxavier/workspace/kickstart/template/h.h",
+		"/Users/albertxavier/workspace/huawei/b.cpp",
+		"/Users/albertxavier/Library/Containers/com.tencent.xinWeChat/Data/Library/Application Support/com.tencent.xinWeChat/2.0b4.0.9/3db745befb4dc9869291a607b70b6daf/Message/MessageTemp/dfa84acc8c1cd89797ecda84e8c5fa54/File/C.cpp",
+		"/Users/albertxavier/workspace/huawei/c.cpp",
+		"/Users/albertxavier/Library/Containers/com.tencent.xinWeChat/Data/Library/Application Support/com.tencent.xinWeChat/2.0b4.0.9/3db745befb4dc9869291a607b70b6daf/Message/MessageTemp/dfa84acc8c1cd89797ecda84e8c5fa54/File/2.cpp",
+		"/Users/albertxavier/workspace/huawei/practice/input.txt",
+		"/Users/albertxavier/workspace/huawei/template/h.h",
+		"/Users/albertxavier/workspace/huawei/practice/output.txt",
+		"/Users/albertxavier/workspace/huawei/practice/poker.cpp",
+		"/Users/albertxavier/workspace/huawei/template/cmd.txt",
+		"/Users/albertxavier/Library/Application Support/Sublime Text 3/Packages/User/cpp.sublime-build",
+		"/Users/albertxavier/workspace/huawei/test1.cpp",
+		"/Applications/Sublime Text 2.app/Contents/MacOS/Packages/C++.sublime-package",
+		"/Users/albertxavier/workspace/huawei/test",
+		"/Users/albertxavier/workspace/huawei/test.cpp",
+		"/Users/albertxavier/Downloads/test/a.cmake",
+		"/Users/albertxavier/Downloads/test/CMakeLists.txt",
+		"/Users/albertxavier/Downloads/test/a.cpp",
+		"/Users/albertxavier/Library/Application Support/Sublime Text 3/Packages/CMakeEditor/README.md",
+		"/Users/albertxavier/Downloads/test/a.sublime-project",
+		"/Users/albertxavier/Library/Application Support/Sublime Text 3/Packages/CMakeBuilder/commands/configure.py",
+		"/Users/albertxavier/workspace/kick_start/Round_A/untitled.sublime-project",
+		"/Users/albertxavier/workspace/kick_start/Round_A/c.cpp"
+	],
+	"find":
+	{
+		"height": 26.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"error",
+			"FGC",
+			"make_pair",
+			"repa",
+			",",
+			"3",
+			" \","
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "round_b/a.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2717,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "README.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 82,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 118.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "kickstart.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/workspace/kick_start/Round_A/untitled.sublime-workspace"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 201.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
