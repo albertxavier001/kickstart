@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/albertxavier/workspace/kickstart/round_c/a/main.cpp
+iostream
+-
+sstream
+-
+vector
+-
+string
+-
+map
+-
+unordered_map
+-
+set
+-
+unordered_set
+-
+algorithm
+-
+limits
+-
+queue
+-
+stack
+-
+utility
+-
+

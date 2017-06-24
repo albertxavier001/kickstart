@@ -20,7 +20,7 @@ using namespace std;
 	macros
 */
 
-#define debug if (1)
+#define debug if (0)
 #define local if (1)
 #define ndebug if (0)
 
@@ -95,8 +95,8 @@ typedef std::vector<std::vector<std::vector<double> > > cubed;
 template <class T>
 inline void hash_combine(std::size_t & seed, const T & v)
 {
-  std::hash<T> hasher;
-  seed ^= hasher(v) + 0x9e3779b9 + (seed << 6) + (seed >> 2);
+	std::hash<T> hasher;
+	seed ^= hasher(v) + 0x9e3779b9 + (seed << 6) + (seed >> 2);
 }
 
 struct pair_hash {
@@ -107,7 +107,7 @@ struct pair_hash {
 
 		// // Mainly for demonstration purposes, i.e. works but is overly simple
 		// // In the real world, use sth. like boost.hash_combine
-		// return h1(p.first) ^ h2(p.second);  
+		// return h1(p.first) ^ h2(p.second);
 
 		size_t seed = 0;
 		::hash_combine(seed, p.first);
@@ -157,22 +157,84 @@ void mergeSort(Iter beg, Iter end) {
 */
 
 
-void solve (int iter) {
+const int MAXN = (int)1e9;
 
+
+void add (unordered_map<int,int> &hash, int beg, int end) {
+	rep (i, beg, end+1) {
+		hash[i]++;
+	}
+}
+
+int tryRemove (unordered_map<int,int> &hash,
+               vector<pair<int, int> > &intervals, int mi, int ma) {
+	int covered = 0;
+	rep (i,mi,ma+1) {
+		if (hash[i] != 0) covered++;
+	}
+	debug cerr << "mi = " << mi << " ma = " << ma << endl;
+	debug cerr << "covered = " << covered << endl;
+
+	int minCov = 1e9+1;
+	repa (inv, intervals) {
+		int x = inv.first;
+		int y = inv.second;
+		int curCov = covered;
+		rep (i, x, y+1) {
+			if (hash[i] == 1) curCov--;
+		}
+		minCov = min(minCov, curCov);
+	}
+	return minCov;
+}
+
+
+//new_veci(arr, MAXN, 0)
+
+void solve (int iter) {
+	debug cerr << "iter = " << iter << endl;
 	/* code here */
+	readi(N) readi(L1) readi(R1)
+	readi(A) readi(B) readi(C1) readi(C2) readi(M)
+	unordered_map<int, int> hash;
+	debug cerr << "input\n";
+//	if (iter > 1) fill(arr.begin(), arr.end(), 0);
+	vector<pii> intervals(N);
+	add(hash, L1, R1);
+	int x = L1, y = R1;
+	intervals[0] = pii(x,y);
+	debug cerr << "L = " << intervals[0].first
+	           << " R = " << intervals[0].second << endl;
+	int mi = min(x,y), ma = max(x,y);
+	rep (i,1, N) {
+		int x0 = x, y0 = y;
+		x = (A * x0 + B * y0 + C1) % M;
+		y = (A * y0 + B * x0 + C2) % M;
+
+		mi = min3(mi, x, y);
+		ma = max3(ma, x, y);
+
+		debug cerr << "@mi = " << mi << " ma = " << ma << endl;
+		debug cerr << "@x = " << x << " y = " << y << endl;
+
+		intervals[i] = pii(min(x,y), max(x,y));
+		debug cerr << "L = " << intervals[i].first
+		           << " R = " << intervals[i].second << endl << endl;
+		add(hash, min(x,y), max(x,y));
+	}
 
 
 	cout << "Case #" << iter << ": ";
-	
+	cout << tryRemove(hash, intervals, mi, ma);
 	cout << endl;
 }
 
 int main () {
 	local {
-		freopen("input.txt", "r", stdin);
+		freopen("D-small-practice.in", "r", stdin);
 		freopen("output.txt", "w", stdout);
 	}
-	
+
 	readi(T);
 	for (int t = 1; t <= T; t++) {
 		solve(t);

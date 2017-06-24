@@ -4,6 +4,30 @@
 		"selected_items":
 		[
 			[
+				"gri",
+				"gridd"
+			],
+			[
+				"grid",
+				"gridc"
+			],
+			[
+				"vec",
+				"veci"
+			],
+			[
+				"cube",
+				"cubei"
+			],
+			[
+				"grd",
+				"gridi"
+			],
+			[
+				"read",
+				"readi"
+			],
+			[
 				"ch",
 				"check"
 			],
@@ -40,10 +64,6 @@
 				"leftWin"
 			],
 			[
-				"vec",
-				"vector"
-			],
-			[
 				"add",
 				"add_executable"
 			],
@@ -56,18 +76,10 @@
 	"buffers":
 	[
 		{
-			"file": "round_b/a.cpp",
+			"file": "round_b/c_2.cpp",
 			"settings":
 			{
-				"buffer_size": 2717,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "README.md",
-			"settings":
-			{
-				"buffer_size": 82,
+				"buffer_size": 4533,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -169,9 +181,34 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
+	"expanded_folders":
+	[
+		"/Users/albertxavier/workspace/kickstart",
+		"/Users/albertxavier/workspace/kickstart/round_b",
+		"/Users/albertxavier/workspace/kickstart/template"
+	],
 	"file_history":
 	[
 		"/Users/albertxavier/workspace/kickstart/template/h.h",
+		"/Users/albertxavier/workspace/kickstart/round_b/C-large-practice.in",
+		"/Users/albertxavier/workspace/kickstart/round_b/input.txt",
+		"/Users/albertxavier/workspace/kickstart/round_b/output_ref.txt",
+		"/Users/albertxavier/workspace/kickstart/round_b/output.txt",
+		"/Users/albertxavier/workspace/kickstart/round_b/solution/KSB2017_3 2",
+		"/Users/albertxavier/workspace/kickstart/round_a/input.txt",
+		"/Users/albertxavier/workspace/kickstart/round_b/c.cpp",
+		"/Users/albertxavier/workspace/kickstart/round_b/solution/draft.cpp",
+		"/Users/albertxavier/workspace/kickstart/round_b/solution/C 2.cpp",
+		"/Users/albertxavier/workspace/kickstart/round_b/solution/3.cpp",
+		"/Users/albertxavier/workspace/kickstart/round_b/solution/KSB2017_3.cpp",
+		"/Users/albertxavier/workspace/kickstart/round_b/solution/C.cpp",
+		"/Users/albertxavier/workspace/kickstart/round_b/C-small-practice.in",
+		"/Users/albertxavier/workspace/kickstart/round_b/solution/KSB2017_3 2.cpp",
+		"/Users/albertxavier/workspace/kickstart/round_b/solution/Main.cpp",
+		"/Users/albertxavier/workspace/kickstart/round_b/a.cpp",
+		"/Users/albertxavier/workspace/kickstart/round_b/b.cpp",
+		"/Users/albertxavier/workspace/kickstart/README.md",
+		"/Users/albertxavier/workspace/kickstart/kickstart.sublime-project",
 		"/Users/albertxavier/workspace/huawei/b.cpp",
 		"/Users/albertxavier/Library/Containers/com.tencent.xinWeChat/Data/Library/Application Support/com.tencent.xinWeChat/2.0b4.0.9/3db745befb4dc9869291a607b70b6daf/Message/MessageTemp/dfa84acc8c1cd89797ecda84e8c5fa54/File/C.cpp",
 		"/Users/albertxavier/workspace/huawei/c.cpp",
@@ -197,7 +234,7 @@
 	],
 	"find":
 	{
-		"height": 26.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -211,6 +248,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"ndebug",
+			"error",
+			"grid",
+			"###########",
+			"std::",
+			"cout",
 			"error",
 			"FGC",
 			"make_pair",
@@ -235,62 +278,33 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "round_b/a.cpp",
+					"file": "round_b/c_2.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2717,
+						"buffer_size": 4533,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								3685,
+								3685
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "README.md",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 82,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2862.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -351,6 +365,42 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"h",
+				"template/h.h"
+			],
+			[
+				"clargein",
+				"round_b/C-large-practice.in"
+			],
+			[
+				"kbcpp",
+				"round_b/solution/KSB2017_3 2.cpp"
+			],
+			[
+				"kb",
+				"round_b/solution/KSB2017_3 2"
+			],
+			[
+				"inp",
+				"round_a/input.txt"
+			],
+			[
+				"h.h",
+				"template/h.h"
+			],
+			[
+				"input",
+				"round_a/input.txt"
+			],
+			[
+				"in",
+				"round_a/input.txt"
+			],
+			[
+				"hh",
+				"template/h.h"
+			]
 		],
 		"width": 0.0
 	},
@@ -381,10 +431,10 @@
 	{
 	},
 	"show_minimap": true,
-	"show_open_files": false,
+	"show_open_files": true,
 	"show_tabs": true,
-	"side_bar_visible": true,
-	"side_bar_width": 201.0,
+	"side_bar_visible": false,
+	"side_bar_width": 143.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

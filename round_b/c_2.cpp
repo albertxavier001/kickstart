@@ -14,15 +14,14 @@
 
 using namespace std;
 
-
+#define debug if (1)
+#define local if (1)
+#define ndebug if (0)
 
 /*
 	macros
 */
 
-#define debug if (1)
-#define local if (1)
-#define ndebug if (0)
 
 #define rep(i,beg,end) for (int i = beg; i < end; ++i)
 #define repp(i,beg,end) for (int i = beg; i >= end; --i)
@@ -32,16 +31,10 @@ using namespace std;
 // #define repDownOpen(i,beg,end) for (int i = beg; i > end; --i)
 // #define repDownClose(i,beg,end) for (int i = beg; i >= end; --i)
 #define pb push_back
-
-#define reads(x) string x; cin>>x;
 #define readc(x) char x; cin>>x;
 #define readi(x) int x; cin>>x;
-#define readll(x) long long x; cin>>x;
 #define readd(x) double x; cin>>x;
 #define mod (1000000007)
-
-#define min3(a,b,c) min(a,min(b,c))
-#define max3(a,b,c) max(a,max(b,c))
 
 /*
 	type
@@ -70,23 +63,6 @@ typedef std::vector<std::vector<std::vector<int> > > cubei;
 typedef std::vector<std::vector<std::vector<float> > > cubef;
 typedef std::vector<std::vector<std::vector<double> > > cubed;
 
-#define new_vecb(x,n,val) vecb x(n, val);
-#define new_vecc(x,n,val) vecc x(n, val);
-#define new_veci(x,n,val) veci x(n, val);
-#define new_vecf(x,n,val) vecf x(n, val);
-#define new_vecd(x,n,val) vecd x(n, val);
-
-#define new_gridb(x,r,c,val) gridb x(r, vecb(c, val));
-#define new_gridc(x,r,c,val) gridc x(r, vecc(c, val));
-#define new_gridi(x,r,c,val) gridi x(r, veci(c, val));
-#define new_gridf(x,r,c,val) gridf x(r, vecf(c, val));
-#define new_gridd(x,r,c,val) gridd x(r, vecd(c, val));
-
-#define new_cubeb(x,r,c,h,val) cubeb x(r, gridb(c, vecb(h, val)));
-#define new_cubec(x,r,c,h,val) cubec x(r, gridc(c, vecc(h, val)));
-#define new_cubei(x,r,c,h,val) cubei x(r, gridi(c, veci(h, val)));
-#define new_cubef(x,r,c,h,val) cubef x(r, gridf(c, vecf(h, val)));
-#define new_cubed(x,r,c,h,val) cubed x(r, gridd(c, vecd(h, val)));
 /*
 	common functions
 */
@@ -156,20 +132,78 @@ void mergeSort(Iter beg, Iter end) {
 	my functions
 */
 
+bool lineOk (int i, int beg, int end, gridc &mat) {
+	int n = mat.size(), m = mat[0].size();
+	if (i < 0 || i >= n || beg < 0 || beg >= m || end < 0 || end >= m) return false;
+	rep (j, beg, end+1) {
+		if (mat[i][j] == '.') return false;
+	}
+	return true;
+}
+
 
 void solve (int iter) {
 
 	/* code here */
+	readi(N)
+	readi(M)
+	readi(K)
+	gridc mat(N, vecc(M));
+	cubei dp(N+1, gridi(M, veci(K+1, 0)));
+	cubeb can(N, gridb(M, vecb(M, 0)));
+	rep(i,0,N) rep (j,0,M) cin >> mat[i][j];
 
+	int maxCell = 0;
+	rep (i,0,N) {
+		rep (j,0,M) {
+			// start (i,j)
+			if (mat[i][j] == '.') continue; 
+			rep (k,1,K+1) {
+				// grow tree
+				if (dp[i][j][k-1] == 0 && k-1>0) continue; 
+				rep (rad,0,M+1) {
+					int h = i+rad;
+					bool ok = lineOk(h, j-rad, j+rad, mat);
+					if (!ok) break;
+					// segment
+					if (h+1 > N || k == 0) continue;
+					rep (x, j-rad, j+rad+1) {
+						ndebug {
+							cout << "k = " << k << " i = " << i << " j = " << j;
+							cout << " h = " << h <<" x = "<< x << "\n";
+						}
+						dp[h+1][x][k] = max(dp[i][j][k-1]+(rad+1)*(rad+1), dp[h+1][x][k]);
+						if (k == K) maxCell = max(maxCell, dp[h+1][x][k]);
+					}
+				}
+			ndebug {cout << "??" << endl;}
+			}
+		}
+	}
+
+
+	ndebug {
+		rep (k,0,K+1) {
+			cout << "k = " << k << endl;
+			rep (i,0,N) {
+				rep (j,0,M) {
+					cout << dp[i][j][k] << " ";
+				}
+				cout << endl;
+			}
+			cout << endl;
+		}
+	}
 
 	cout << "Case #" << iter << ": ";
-	
+	cout << maxCell;
 	cout << endl;
 }
 
 int main () {
 	local {
-		freopen("input.txt", "r", stdin);
+		// freopen("input.txt", "r", stdin);
+		freopen("C-large-practice.in", "r", stdin);
 		freopen("output.txt", "w", stdout);
 	}
 	

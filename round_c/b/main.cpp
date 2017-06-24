@@ -20,7 +20,7 @@ using namespace std;
 	macros
 */
 
-#define debug if (1)
+#define debug if (0)
 #define local if (1)
 #define ndebug if (0)
 
@@ -36,13 +36,11 @@ using namespace std;
 #define reads(x) string x; cin>>x;
 #define readc(x) char x; cin>>x;
 #define readi(x) int x; cin>>x;
-#define readll(x) long long x; cin>>x;
 #define readd(x) double x; cin>>x;
 #define mod (1000000007)
-
+#define readll(x) long long x; cin>>x;
 #define min3(a,b,c) min(a,min(b,c))
-#define max3(a,b,c) max(a,max(b,c))
-
+#define max3(a,b,c) min(a,max(b,c))
 /*
 	type
 */
@@ -87,6 +85,7 @@ typedef std::vector<std::vector<std::vector<double> > > cubed;
 #define new_cubei(x,r,c,h,val) cubei x(r, gridi(c, veci(h, val)));
 #define new_cubef(x,r,c,h,val) cubef x(r, gridf(c, vecf(h, val)));
 #define new_cubed(x,r,c,h,val) cubed x(r, gridd(c, vecd(h, val)));
+
 /*
 	common functions
 */
@@ -95,8 +94,8 @@ typedef std::vector<std::vector<std::vector<double> > > cubed;
 template <class T>
 inline void hash_combine(std::size_t & seed, const T & v)
 {
-  std::hash<T> hasher;
-  seed ^= hasher(v) + 0x9e3779b9 + (seed << 6) + (seed >> 2);
+	std::hash<T> hasher;
+	seed ^= hasher(v) + 0x9e3779b9 + (seed << 6) + (seed >> 2);
 }
 
 struct pair_hash {
@@ -107,7 +106,7 @@ struct pair_hash {
 
 		// // Mainly for demonstration purposes, i.e. works but is overly simple
 		// // In the real world, use sth. like boost.hash_combine
-		// return h1(p.first) ^ h2(p.second);  
+		// return h1(p.first) ^ h2(p.second);
 
 		size_t seed = 0;
 		::hash_combine(seed, p.first);
@@ -157,22 +156,71 @@ void mergeSort(Iter beg, Iter end) {
 */
 
 
+
+
 void solve (int iter) {
 
 	/* code here */
+	readi(R) readi(C) readi(K)
 
+	new_gridb(mon,R,C,false) new_gridi(dp,R,C,1)
+
+	rep (i,0,K) {
+		readi(r) readi(c)
+		mon[r][c] = true;
+		dp[r][c] = 0;
+	}
+
+	ll sum = 0;
+	rep(i,0,R) {
+		rep(j,0,C) {
+			if (mon[i][j] == true) continue;
+			if (i == 0 || j == 0) {sum++; continue;}
+			// int a1 = dp[i-1][j];
+			// int a2 = dp[i][j-1];
+			// int a3 = dp[i-1][j-1];
+			// int r = max3((i-1) - abs(a1-1), (i) - abs(a2-1), (i-1) - abs(a3-1));
+			// int c = max3((j) - abs(a1-1), (j-1) - abs(a2-1), (j-1) - abs(a3-1));
+			// int len = min((i) - (r) + 1, (j) - (c) + 1);
+			// if (a1 == 0 || a2 == 0 || a3 == 0) len = 1;
+			// dp[i][j] = max(len, 1);
+			// sum += dp[i][j];
+			dp[i][j] = min3(dp[i-1][j-1], dp[i][j-1], dp[i-1][j]) + 1;
+			ndebug {
+//				if (len != dp[i][j]) {
+//                    int len2 = dp[i][j];
+//                    cerr << "i = " << i << " j = " << j << endl;
+//                    cerr << "r = " << r << " c = " << c << endl;
+//                    cerr << "a1 = " << a1 << " a2 = " << a2 << " a3 = " << a3 << endl;
+//                    cerr << "len = " << len << " dp = " << len2 << endl;
+//                    cerr << "diff\n";
+//
+//                }
+			}
+			sum += dp[i][j];
+		}
+	}
 
 	cout << "Case #" << iter << ": ";
-	
+	cout << sum;
 	cout << endl;
+
+	debug {
+		printMatrix(mon);
+		printMatrix(dp);
+	}
+
+
 }
 
 int main () {
 	local {
-		freopen("input.txt", "r", stdin);
+        freopen("B-large-practice.in", "r", stdin);
+//        freopen("input.txt", "r", stdin);
+
 		freopen("output.txt", "w", stdout);
 	}
-	
+
 	readi(T);
 	for (int t = 1; t <= T; t++) {
 		solve(t);

@@ -41,7 +41,7 @@ using namespace std;
 #define mod (1000000007)
 
 #define min3(a,b,c) min(a,min(b,c))
-#define max3(a,b,c) max(a,max(b,c))
+#define max3(a,b,c) min(a,max(b,c))
 
 /*
 	type
@@ -107,7 +107,7 @@ struct pair_hash {
 
 		// // Mainly for demonstration purposes, i.e. works but is overly simple
 		// // In the real world, use sth. like boost.hash_combine
-		// return h1(p.first) ^ h2(p.second);  
+		// return h1(p.first) ^ h2(p.second);
 
 		size_t seed = 0;
 		::hash_combine(seed, p.first);
@@ -150,29 +150,99 @@ void mergeSort(Iter beg, Iter end) {
 	variables
 */
 
-
+const ll MAXN = pow((ll)10, (ll)18);
+//const ll MAXN = 20;
 
 /*
 	my functions
 */
 
+ll cmpRes (ll base, ll M, ll N) {
+
+	debug cerr << "base = " << base << " M = " << M << " N = " << N << endl;
+
+	ll ans = 0;
+	ll mul = 1;
+	rep (i, 0, M) {
+		debug {
+			if (M == 2) {
+				cerr << "i = " << i << endl;
+				cerr << "before\n";
+				cerr << ans << endl;
+				cerr << mul << endl;
+			}
+		};
+		if (mul > N || mul <= 0) return 1;
+		ans += mul;
+		mul *= base;
+		debug {
+			if (M == 2) {
+				cerr << "after\n";
+				cerr << ans << endl;
+				cerr << mul << endl << endl;
+			}
+		};
+
+		if (ans > N || ans <= 0) return 1;
+	}
+	if (ans > N || ans <= 0) return 1;
+	debug cerr << "## N = " << N << " ans = " << ans << endl;
+	return N == ans ? 0 : -1;
+}
+
+ll testBase (ll N, ll M) {
+	ll low = 2, mid = -1, high;
+// //	high = N;
+	// if (M > 2) {
+	// 	debug cerr << "????? M = " << M << endl;
+	// 	high = pow(N, (double)1/(M-1));
+	// } else {
+	// 	high = N-1;
+	// }
+//
+//	M = 2;
+	
+	// high = (M <= 2) ? (N-1) : (pow(N, (double)1/(M-1)));
+	high = (M > 2) ? pow(N, (double)1/(M-1)) : (N-1);
+
+	while (low <= high) {
+		mid = low + (high - low) / 2;
+		debug cerr << "low = " << low << " mid = " << mid << " high = " << high
+		           << " N = " << N << " M = " << M << endl;
+		int res = cmpRes(mid, M, N);
+		debug cerr << "res = " << res << endl;
+		if (res == 0) return mid;
+		else if (res > 0) high = mid - 1;
+		else low = mid + 1;
+	}
+	return -1;
+}
 
 void solve (int iter) {
 
 	/* code here */
+	debug cerr << "case " << iter << endl;
+	readll(N)
+	debug cerr << "N = " << N << endl;
 
+	ll base;
+	repp(M,62,1) {
+		base = testBase(N, M);
+		if (base != -1) break;
+	}
 
 	cout << "Case #" << iter << ": ";
-	
+	cout << base;
 	cout << endl;
 }
 
 int main () {
 	local {
 		freopen("input.txt", "r", stdin);
+		freopen("/Users/albertxavier/workspace/kickstart/round_c/c/cmake-build-debug/C-large-practice.in", "r", stdin);
 		freopen("output.txt", "w", stdout);
 	}
-	
+
 	readi(T);
 	for (int t = 1; t <= T; t++) {
 		solve(t);
