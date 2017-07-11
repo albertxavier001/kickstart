@@ -170,6 +170,7 @@ void solve (int iter) {
 int main () {
 	local {
 		freopen("input.txt", "r", stdin);
+		// freopen("A-small-practice.in", "r", stdin);
 		freopen("output.txt", "w", stdout);
 	}
 	

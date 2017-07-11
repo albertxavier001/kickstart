@@ -11,7 +11,7 @@
 #include <queue>
 #include <stack>
 #include <utility>
-#include <cmath>
+
 using namespace std;
 
 
@@ -95,8 +95,8 @@ typedef std::vector<std::vector<std::vector<double> > > cubed;
 template <class T>
 inline void hash_combine(std::size_t & seed, const T & v)
 {
-	std::hash<T> hasher;
-	seed ^= hasher(v) + 0x9e3779b9 + (seed << 6) + (seed >> 2);
+  std::hash<T> hasher;
+  seed ^= hasher(v) + 0x9e3779b9 + (seed << 6) + (seed >> 2);
 }
 
 struct pair_hash {
@@ -116,12 +116,6 @@ struct pair_hash {
 	}
 };
 
-
-bool cmpPair(const pll &a, const pll &b) {
-	if (a.first == b.first && a.second < b.second) return true;
-	if (a.first < b.first) return true;
-	return false;
-}
 
 template <class T>
 void printMatrix(vector<vector<T> > &m) {
@@ -163,114 +157,42 @@ void mergeSort(Iter beg, Iter end) {
 */
 
 
-const int MAXN = (int)1e9;
-
-ll coverAll(vector<pll> &intervals) {
-
-	ll cnt = 0;
-	ll left = intervals[0].first;
-	ll right = intervals[0].second;
-
-	rep(i, 1, intervals.size()) {
-		if (intervals[i].first > right) {
-			debug cerr << "left = " << left << " right = " << right << endl;
-			cnt += right - left + 1;
-			left = intervals[i].first;
-			right = intervals[i].second;
-			continue;
-		}
-		if (intervals[i].second > right) {
-			right = intervals[i].second;
-			continue;
-		}
-	}
-	cnt += right - left + 1;
-
-	return cnt;
-}
-
-
-ll cover(vector<pll> &intervals) {
-	ll tail = intervals[0].first - 1;
-	ll secondTail = intervals[0].second - 1;
-//	ll cnt = 0;
-	vector<ll> cnts(intervals.size(), 0);
-	ll ind = -1;
-	rep (i, 0, intervals.size()) {
-		// update cnt
-		if (i > 0 && intervals[i].first > secondTail) {
-			cnts[ind] += min(tail, intervals[i].first-1) - secondTail;
-		}
-
-		// update second tail
-		if (tail > intervals[i].second) secondTail = max(secondTail, intervals[i].second);
-		else secondTail = max(tail, intervals[i].first-1);
-
-		// update tail
-		if (intervals[i].second > tail) {
-			tail = intervals[i].second;
-			ind = i;
-		}
-	}
-
-	cnts[ind] += tail - secondTail;
-
-	ll maxCover = 0;
-
-	repa(x, cnts) {
-		maxCover = max(maxCover, x);
-	}
-	return maxCover;
-}
-
 void solve (int iter) {
 
-	readll(N)
-	readll(L1)
-	readll(R1)
-	readll(A)
-	readll(B)
-	readll(C1)
-	readll(C2)
-	readll(M)
-	debug
-		cerr << "\nN = " << N << " L1 =" << L1 << " R1 = " << R1
-	     << " A = " << A << " B = " << B
-	     << " C1 = " << C1 << " C2 = " << C2 << " M = " << M << endl;
+	/* code here */
 
-	vector<pll> intervals(N);
-	intervals[0].first = L1;
-	intervals[0].second = R1;
-	ll x = L1,y = R1,x_ = L1,y_ = R1;
-	rep(i, 1, N) {
-		x = (A * x_ + B * y_ + C1 ) % M;
-		y = (A * y_ + B * x_ + C2 ) % M;
-		debug cerr << "x = " << x << " y = " << y << endl;
-		intervals[i].first = min(x, y);
-		intervals[i].second = max(x, y);
-		x_ = x;
-		y_ = y;
+	reads(W)
+//	debug cerr << W << endl;
+	int n = W.size();
+//	rep(i,0,n) W[i] -= 'A';
+	string ori(n, '#');
+
+	if (n & 1) {
+		ori = "AMBIGUOUS";
+		goto RET;
 	}
-	sort(intervals.begin(), intervals.end());
-	debug {
-		cerr << "intervals = " << endl;
-		repa(inv, intervals) {
-			cerr << "(" << inv.first << ", " << inv.second << ")\n";
-		}
-	};
-	ll nCoverAll = coverAll(intervals);
-	ll nCover = cover(intervals);
-	debug cerr << "ncoverall = " << nCoverAll << endl;
-	debug cerr << "cover = " << nCover << endl;
+	ori[1] = W[0];
+	ori[n-1-1] = W[n-1];
+	debug cerr<<ori<<endl;
+	for (int i=1+2; i<n; i+=2) {
+		ori[i] = (-ori[i-2]+W[i-1]+26) % 26 + 'A';
+//		debug cerr << "l to r: " << " i = " << i << ": "
+//		           << "W = " << (char)(W[i-1]+'A') << " ori = " << (char)(ori[i-2]) << " str = " << ori << endl;
+	}
+
+	for (int i = n-2-2; i>=0; i-=2) {
+		ori[i] = (-ori[i+2]+W[i+1]+26)%26+'A';
+	}
+RET:
 	cout << "Case #" << iter << ": ";
-	cout << (ll)(nCoverAll - nCover);
+	cout << ori;
 	cout << endl;
 }
 
 int main () {
 	local {
-		freopen("C-large-practice.in", "r", stdin);
-//		freopen("input.txt", "r", stdin);
+		freopen("input.txt", "r", stdin);
+		freopen("A-large-practice.in", "r", stdin);
 		freopen("output.txt", "w", stdout);
 	}
 
