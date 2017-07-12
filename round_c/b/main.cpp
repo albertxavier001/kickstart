@@ -107,7 +107,7 @@ struct pair_hash {
 
 		// // Mainly for demonstration purposes, i.e. works but is overly simple
 		// // In the real world, use sth. like boost.hash_combine
-		// return h1(p.first) ^ h2(p.second);  
+		// return h1(p.first) ^ h2(p.second);
 
 		size_t seed = 0;
 		::hash_combine(seed, p.first);
@@ -161,20 +161,51 @@ void solve (int iter) {
 
 	/* code here */
 
+	readi(N)
+	vector<string> board(N);
+	bool f = true;
+	rep(i,0,N) cin>>board[i];
+
+	veci r(N,0), c(N,0);
+
+	rep(i,0,N) rep(j,0,N) if (board[i][j]=='X') {
+				r[i]++, c[j]++;
+				if (r[i]>2 || c[j]>2) {f = false;break;}
+			}
+
+	int r1 = -1, c1 = -1;
+	rep(i,0,N) {
+		if (r[i] == 1) r1 = i;
+		if (c[i] == 1) c1 = i;
+	}
+
+	if (r1==-1 || c1==-1) {f=false;}
+
+	board[r1][c1] = '.';
+
+	if (f) rep(i,0,N) rep(j,0,N) if (board[i][j]=='X') {
+				int ii=-1,jj=-1;
+				rep(k,0,N) if(board[i][k]=='X' && k!=j) {jj=k; break;}
+				rep(k,0,N) if(board[k][j]=='X' && k!=i) {ii=k; break;}
+				if (board[ii][jj]!='X') {f=false; break;}
+				else {board[i][j]=board[i][jj]=board[ii][j]=board[ii][jj]='.';}
+			}
+
+
+	END:
 
 	cout << "Case #" << iter << ": ";
-	
+	if (f) cout << "POSSIBLE"; else cout << "IMPOSSIBLE";
 	cout << endl;
 }
 
 int main () {
 	local {
 		freopen("input.txt", "r", stdin);
-		// freopen("A-small-practice.in", "r", stdin);
-		// freopen("A-large-practice.in", "r", stdin);
+		 freopen("B-large-practice.in", "r", stdin);
 		freopen("output.txt", "w", stdout);
 	}
-	
+
 	readi(T);
 	for (int t = 1; t <= T; t++) {
 		solve(t);
