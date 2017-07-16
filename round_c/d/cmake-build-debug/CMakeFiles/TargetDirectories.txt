@@ -1,0 +1,3 @@
+/Users/albertxavier/workspace/kickstart/round_c/d/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/albertxavier/workspace/kickstart/round_c/d/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/albertxavier/workspace/kickstart/round_c/d/cmake-build-debug/CMakeFiles/d.dir
