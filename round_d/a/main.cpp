@@ -161,68 +161,7 @@ const int inf = 1e9;
 
 void solve (int iter) {
 
-	/* code here */
-	readi(N) readi(Ts) readi(Tf)
-	veci Si(N+1,-1), Fi(N+1,-1), Di(N+1,-1);
-	rep(i,1,N) cin >> Si[i] >> Fi[i] >> Di[i];
 
-	new_gridi(dp, N+1, Tf+1, -1);
-	rep(i,0,dp[0].size()) {
-		dp[0][i] = 0;
-	}
-	Si[0] = Fi[0] = Di[0] = 0;
-	Fi[0] = 1;
-//	for (int i = Ts; i <= Tf; i++) {
-//		dp[0][i] = 1;
-//	}
-
-	rep (c,0,N) {
-		rep(arrive,0,Tf+1) {
-//			rep(leave,0,inf) {
-				if (dp[c][arrive] < 0) continue;
-				int k = 0;
-				if (c >= 1 && arrive >= Si[c]) {
-					k = (arrive-Si[c])/Fi[c];
-				}
-				int leave = k * Fi[c] + Si[c];
-				if (leave < arrive) leave += Fi[c];
-//				debug cerr << " leave start = " << leave << endl;
-//				for (int K = leave; K <= Tf; K+=Fi[c]) {
-////						if (K+Di[c] <= Tf ) dp[c+1][K+Di[c]] = 0;
-//					debug cerr << " c = " << c << " arrive = " << arrive << endl;
-//					debug cerr << " K = " << K << endl;
-//					int nextArrive = K+Di[c];
-//					if (nextArrive < 0) continue;
-////					if (nextArrive <= arrive) continue;
-//					debug {
-//						if (c==1&&arrive==6) {
-//							cerr << "dp = " << dp[c][arrive] << endl;
-//							cerr<<"aa"<<endl;
-//						}
-//					};
-//					debug {
-//						if (c+1==1 && nextArrive == 6) {
-//							cerr << "xx\n";
-//						}
-//					};
-//
-//					if (nextArrive <= Tf && c > 0) dp[c+1][nextArrive] = max(dp[c+1][nextArrive], dp[c][arrive] + (int)(K-arrive>=Ts?1:0));
-//					else if (nextArrive <= Tf) dp[c+1][K+Di[c]] = dp[c][arrive];
-//				}
-
-//			}
-		}
-	}
-
-
-	debug {
-		cerr << "dp"<<endl;
-		printMatrix(dp);
-	}
-	int ret = -1;
-	rep(i,0,Tf+1){
-		ret = max(ret, dp[N][i]);
-	}
 
 
 //	if (ret == N) ret--;
