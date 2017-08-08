@@ -1,0 +1,1 @@
+export SRC_NAME="test1" && SUF=".cpp" && g++ $SRC_NAME$SUF -o $SRC_NAME && ./$SRC_NAME

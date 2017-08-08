@@ -43,6 +43,7 @@ using namespace std;
 #define min3(a,b,c) min(a,min(b,c))
 #define max3(a,b,c) max(a,max(b,c))
 
+
 /*
 	type
 */
@@ -150,24 +151,69 @@ void mergeSort(Iter beg, Iter end) {
 	variables
 */
 
-
+const int maxn = 2001;
+const int inf = 1e9;
 
 /*
 	my functions
 */
 
-
-const int inf = 1e9;
-
 void solve (int iter) {
 
+	new_gridi(dp, maxn, maxn, inf);
+	readi(N) readi(Ts) readi(Tf)
+
+	veci S(N-1), F(N-1), D(N-1);
+
+	rep(i,0,N-1) {
+		cin >> S[i] >> F[i] >> D[i];
+	}
+
+	dp[0][0] = 0;
+
+	rep(i,0,N-1) {
+		rep(j,0,N) {
+			debug cerr << "i = " << i << " j = " << j << endl;
+			int k, leave;
+
+			if (dp[i][j] + Ts <= S[i]) k = 0;
+			else k = (dp[i][j] + Ts - S[i]) / F[i] + ((dp[i][j] + Ts - S[i]) % F[i] != 0);
+			leave = S[i] + F[i] * k;
+
+			debug cerr << "k = " << k << endl;
+			debug cerr << "leave = " << leave << endl;
+			dp[i+1][j+1] = min(dp[i+1][j+1], leave + D[i]);
+
+			if (dp[i][j] <= S[i]) k = 0;
+			else k = (dp[i][j] - S[i]) / F[i] + ((dp[i][j] - S[i]) % F[i] != 0);
+            leave = S[i] + F[i] * k;
+
+			debug cerr << "k = " << k << endl;
+			debug cerr << "leave = " << leave << endl << endl;
+			dp[i+1][j] = min(dp[i+1][j], leave + D[i]);
+		}
+	}
 
 
+	debug {
+		cerr << "dp" << endl;
+		rep(i,0,N+1) {
+			rep(j,0,N+1) {
+				cerr << dp[i][j] << " ";
+			}
+			cerr << endl;
+		}
+	};
 
-//	if (ret == N) ret--;
+	int maxcnt = -1;
+	rep (i,0,N+1) {
+		if (dp[N-1][i] >= 0 && dp[N-1][i] <= Tf)
+			maxcnt = max(maxcnt, i);
+	}
+
 	cout << "Case #" << iter << ": ";
-	if (ret ==-1) cout << "IMPOSSIBLE";
-	else cout << ret;
+	if (maxcnt >= 0) cout << maxcnt;
+	else cout << "IMPOSSIBLE";
 	cout << endl;
 }
 
@@ -176,8 +222,8 @@ void solve (int iter) {
 int main () {
 	local {
 		freopen("input.txt", "r", stdin);
-		 freopen("A-small-attempt2.in", "r", stdin);
-		 freopen("A-large.in", "r", stdin);
+//		 freopen("A-small-attempt2.in", "r", stdin);
+		 freopen("A-large-practice.in", "r", stdin);
 		freopen("output.txt", "w", stdout);
 	}
 	
